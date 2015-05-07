@@ -1,0 +1,26 @@
+Ubiquiti recovery mode-
+
+Hold down reset, put in ethernet cable, hold reset button 15 seconds
+ping 192.168.1.20 to make sure you are connected
+in terminal- 
+lappy:~ username$ tftp
+tftp> connect 192.168.1.20
+tftp> binary
+tftp> put XW.v5.5.10.24238.141001.1641.bin
+
+OpenWRT
+192.168.1.1 (no wifi)
+
+AirOS
+192.168.1.20
+
+TP-Link
+192.168.0.1
+admin, admin
+
+qMp
+172.30.22.1
+root, 13f
+
+ssh override known hosts
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@172.30.22.1
