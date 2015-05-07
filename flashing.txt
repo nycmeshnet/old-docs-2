@@ -1,0 +1,69 @@
+Flashing TPLink
+
+192.168.0.1
+name: admin
+pwd: admin
+
+Flashing Ubiquiti
+Connect Ubiquiti to laptop (it has no wifi to begin with)
+
+Go to 192.168.1.20
+name: ubnt
+pwd: ubnt
+
+
+Flash with qMp factory image-
+
+for Nanostation M5 XW get the trunk factory image here-
+http://fw.guifibaix.coop/
+
+For TPLink 841ND and 841N-v9 get the image here-
+https://github.com/nycmeshnet/firmware
+(these images have GRE tunneling)
+
+For other routers get the "factory" images here-
+http://fw.qmp.cat/stable/
+
+"factory" is for flashing from the original firmware. "sysupdate" is for flashing after qMp or OpenWRT is installed.
+
+
+After it reboots go to-
+admin.qmp
+or 
+172.30.22.1
+name: root
+pwd: 13f
+
+Change from "roaming" to "community"
+
+Change node name to abbreviated location e.g. BkPkSlope
+
+Write down the IP on the router (10.30.x.1)
+
+Check that Wireless interface wlan0 is set to-
+ Ad hoc (mesh) + access point
+
+<submit>
+
+After reboot go to the IP you wrote down
+
+Log into Luci and scroll to the bottom and click "Administration"
+
+In the Status menu scroll down to
+SSID: qMp-AP
+click on this and edit the ESSID to say-
+nycmesh mylocation
+
+<Save & Apply>
+
+After reboot log back in and change the Administration password.
+
+Beware that saving anything in the "qMp" menu will overwrite a lot of things including the SSID
+
+Add the splash page by following instructions here:
+https://github.com/nycmeshnet/nodogsplash
+
+
+
+
+
