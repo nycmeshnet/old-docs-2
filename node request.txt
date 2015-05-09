@@ -1,10 +1,16 @@
-Thanks for filling out the node request form. We currently support two different types of routers. A long distance directional router, the Ubiquiti Nanostation NSM5. (~$90) and a small TPLink router for twenty odd dollars.
+Thanks for filling out the node request form. What directions, and how far can you see from the roof? 
 
-For rooftops, we configure the NanoStation with mesh software and can help with the installation. Typically the router is attached to a pole on the roof and an ethernet cable is run to the apartment, and connected to an internet gateway and perhaps another TPLink mesh router.
+We currently support two different types of routers. A long distance directional router, the Ubiquiti Nanostation NSM5. (~$90) and a small indoor TP-Link router for twenty odd dollars. You can buy a pre-configured router from us.
 
-If you don't have rooftop access it is still possible to use a directional NanoStation in your window. It will work from behind glass if you are unable to place it outside the window.
+For rooftops, we configure the NanoStations with mesh software and can help you with the installation. Typically one or two routers are attached to a pole on the roof and an ethernet cable is run to the apartment, and connected to an internet gateway and perhaps another TP-Link mesh router.
+
+If you don't have rooftop access it is still possible to use a directional NanoStation in your window. This works best with line-of-sight to another router. It will work from behind glass if you are unable to place it outside the window.
 
 The power supply for the rooftop router is plugged into an outlet in the apartment and supplied to the router by "power over ethernet".
 
-If your router is within range of another mesh router it will automatically connect to the mesh. If you are out of range, then the router will connect to the mesh over the internet (tunneling). Either way you will be part of the mesh and be able to see our local server at http://nyc.mesh/
+If your router is within range of another mesh router it will automatically connect to the mesh. If you are out of range, then the router will connect to the mesh over the internet (tunneling). Either way you will be part of the mesh and be able to see our local server at http://nyc.mesh/ (our local server is only available if you are on the mesh)
+
+
+https://nycmesh.net/
+http://www.meetup.com/nycmesh/
 
