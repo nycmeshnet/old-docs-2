@@ -17,7 +17,7 @@ Flash with qMp factory image-
 for Nanostation M5 XW get the trunk factory image here-
 http://fw.guifibaix.coop/
 
-For TPLink 841ND and 841N-v9 get the image here-
+For TPLink WR-842ND and WR-841Nv9 get the image here-
 https://github.com/nycmeshnet/firmware
 (these images have GRE tunneling)
 
@@ -38,7 +38,7 @@ Change from "roaming" to "community"
 
 Change node name to abbreviated location e.g. BkPkSlope
 
-Write down the IP on the router (10.30.x.1)
+Write down the IP on the router (10.30.x.1) (You can actually use any IP range in 10.x.x.1)
 
 Check that Wireless interface wlan0 is set to-
  Ad hoc (mesh) + access point
@@ -55,7 +55,7 @@ click on this and edit the ESSID to say-
 nycmesh mylocation
 
 <Save & Apply>
-
+
 After reboot log back in and change the Administration password.
 
 Beware that saving anything in the "qMp" menu will overwrite a lot of things including the SSID
@@ -63,7 +63,4 @@ Beware that saving anything in the "qMp" menu will overwrite a lot of things inc
 Add the splash page by following instructions here:
 https://github.com/nycmeshnet/nodogsplash
 
-
-
-
-
+The DNS tld should be changed to .mesh and .mesh6?  That's the only way we can see nyc.mesh from the network.
