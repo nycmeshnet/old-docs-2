@@ -1,0 +1,54 @@
+Notes for networking related items
+
+gre tunnel:
+
+config interface 'manhattan'                                   
+        option proto 'gre'                                    
+        option peeraddr 'remote ip'                        
+        option ttl '255'                                      
+        option ikey '100'                                      
+        option okey '100'                                      
+                                                              
+config interface 'manhattan_static'                            
+        option proto 'static'                                 
+        option ifname '@manhattan'                             
+        option ipaddr '172.20.0.2'                            
+        option netmask '255.255.255.0'                        
+        option auto '1'
+
+vlan 802.1ad:
+
+config device 'eth0_mesh12'                                   
+        option type '8021ad'                                  
+        option name 'eth0_mesh12'                             
+        option ifname 'eth0.2'                                
+        option vid '12'                                       
+                                                              
+config interface 'eth0_mesh12_if'                             
+        option ifname 'eth0_mesh12'                           
+        option proto 'none'                                   
+	option auto '1' 
+
+script to check tunnels / interfaces:
+
+#!/bin/sh
+if bmx6 -c --interfaces |grep -q "greben" ; then
+	echo "greben found"
+else
+	echo "greben not found"
+	bmx6 -c -i greben
+fi
+
+if bmx6 -c --interfaces |grep -q "greman" ; then 
+        echo "greman found"
+else
+        echo "greman not found"
+	 bmx6 -c -i greman
+fi
+
+if bmx6 -c --interfaces |grep -q "tap0" ; then
+        echo "tap0 found"
+else
+        echo "tap0 not found"
+         bmx6 -c -i tap0
+fi
