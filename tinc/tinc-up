@@ -1,0 +1,4 @@
+#/bin/sh
+ifconfig $INTERFACE up
+bmx6 -c -i $INTERFACE#/bin/sh
+
