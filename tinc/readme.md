@@ -1,5 +1,10 @@
-Need confs in /etc/tincd/nycmesh
-Host public keys go in /etc/tincd/nycmesh/hosts
+Need confs in /etc/tinc/nycmesh
+Host public keys go in /etc/tinc/nycmesh/hosts
+
+
+mkdir /etc/tinc/nycmesh
+mkdir /etc/tinc/nycmesh/hosts
+edit 'name' in /etc/tinc/nycmesh/tinc.conf 
 
 Generate key by:
 tincd -n nycmesh -K4096
