@@ -4,14 +4,15 @@ opkg update
 opkg install tinc
 ```
 
-after install, you need to make the "nycmesh" and "hosts" directories
+After install, you need to make the "nycmesh" and "hosts" directories
 ```
 mkdir -p /etc/tinc/nycmesh/hosts
 ```
 
-on your computer, clone https://github.com/nycmeshnet/docs
-in terminal, move to folder "tinc"
+On your computer
 ```
+git clone https://github.com/nycmeshnet/docs
+cd "docs/tinc"
 scp tinc-up root@10.x.x.1:/etc/tinc/nycmesh/tinc-up
 scp tinc.conf root@10.x.x.1:/etc/tinc/nycmesh/tinc.conf
 cd hosts
@@ -29,15 +30,17 @@ chmod +x tinc-up
 vi tinc.conf
 ```
 e.g.
+```
 Name = MyNewNodeName
 AddressFamily = any
 Interface = tap0
 Mode = switch
 ConnectTo = BkBayRidge
-
-copy the new public key for this node to your computer
 ```
-scp root@10.30.82.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName
+
+Copy the new public key for this node to your computer
+```
+scp root@10.x.x.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName
 ```
 
 The file MyNewNodeName has to also be copied to the "hosts" folder of the routers that you are tunneling to
