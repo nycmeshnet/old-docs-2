@@ -6,7 +6,7 @@ in terminal-
 lappy:~ username$ tftp
 tftp> connect 192.168.1.20
 tftp> binary
-tftp> put XW.v5.5.10.24238.141001.1641.bin
+tftp> put XW.v5.5.10.24238.141001.1641.bin (nanobeam)
 
 OpenWRT
 192.168.1.1 (no wifi)
@@ -25,3 +25,8 @@ root, 13f
 
 ssh override known hosts
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@172.30.22.1
+
+<img draggable="false" data-index="0" src="http://k3.okccdn.com/php/load_okc_image.php/images/27x0/539x512/0/6250272430436458312.jpeg?v=1" width="539" height="960" class="tall">
+
+
+

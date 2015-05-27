@@ -1,0 +1,19 @@
+Download NSM5 XW "factory" binary image to your computer
+plug ethernet from POE on adapter to "main" on NSM5
+plug LAN on adapter to computer
+turn off Wi-Fi
+open Network Prefs
+Connect to ethernet using DHCP with manual address e.g. 192.168.1.11
+go to 192.168.1.20 in your browser
+you will get https warning "your connection is not private" or some such
+click "advanced" and "proceed to 192.168.1.20"
+enter ubnt, ubnt, USA, [x] agree to terms, login
+on the tabbed panel select "System"
+click Upload Firmware <choose file>
+select the M5-XW-qMp-factory image you downloaded
+you will get a "third-party" warning.
+click <update>
+wait a few minutes
+change the manual address in Network prefs to 172.30.22.11
+
+see flashing instructions for configuring qMp

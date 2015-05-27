@@ -58,7 +58,7 @@ nycmesh mylocation
 
 After reboot log back in and change the Administration password.
 
-Beware that saving anything in the "qMp" menu will overwrite a lot of things including the SSID
+Beware: saving anything in the "qMp" menu will overwrite a lot of things including the SSID
 
 Add the splash page by following instructions here:
 https://github.com/nycmeshnet/nodogsplash
