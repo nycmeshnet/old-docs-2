@@ -5,6 +5,7 @@ author: Brian
 ---
 
 **Is there a monthly fee**
+
 No. Once you buy a router and install it you are part of NYC Mesh. There are no additional costs.
 
 **Is this a replacement for my current Internet connection?**
@@ -37,7 +38,7 @@ At the moment the easiest solution is to buy a pre-configured router off us. We 
 
 **Can I install a router if I have no view or no rooftop access?**
 
-Yes you can. Because you may be out of range of other mesh nodes your router will use secure VPN tunneling to connect to the mesh over the Internet. Neighbors could also install our $28 routers creating a mesh for your building and reliable Internet backup. 
+Yes you can. Because you may be out of range of other mesh nodes your router will use secure VPN tunneling to connect to the mesh over the Internet. You will still see the exclusive mesh web content. Neighbors could also install our $28 routers creating a mesh for your building and reliable Internet backup. 
 
 **What is involved in a rooftop install?**
 
