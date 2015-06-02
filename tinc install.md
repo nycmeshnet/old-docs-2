@@ -4,7 +4,7 @@ opkg update
 opkg install tinc
 ```
 
-After install, you need to make the "nycmesh" and "hosts" directories
+After install, you need to make the "nycmesh" directory
 ```
 mkdir /etc/tinc/nycmesh
 ```
@@ -49,10 +49,13 @@ The file MyNewNodeName must also be copied to the "hosts" folder of the routers 
 MTU 1300 must be set in advanced bmx6 options. This can be done in the luci interface-
 Mesh>Configuration>tunMtu 1300
 
-to start the tunnel
+Add the following line to the startup script. This can be done by editing /etc/rc.local or in luci>Administration>System>Startup>Local Startup. Make sure "exit 0" is the last line.
+
 ```
 tincd -n nycmesh
 ```
+you can also use the same line to start the tunnel without rebooting
+
 
 
 
