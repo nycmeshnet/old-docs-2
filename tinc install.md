@@ -6,7 +6,7 @@ opkg install tinc
 
 After install, you need to make the "nycmesh" and "hosts" directories
 ```
-mkdir -p /etc/tinc/nycmesh/hosts
+mkdir /etc/tinc/nycmesh
 ```
 
 On your computer
@@ -15,9 +15,7 @@ git clone https://github.com/nycmeshnet/docs
 cd docs/tinc
 scp tinc-up root@10.x.x.1:/etc/tinc/nycmesh/tinc-up
 scp tinc.conf root@10.x.x.1:/etc/tinc/nycmesh/tinc.conf
-cd hosts
-scp hostName root@10.x.x.1:/etc/tinc/nycmesh/hosts/hostName
-scp hostName2 root@10.x.x.1:/etc/tinc/nycmesh/hosts/hostName2
+scp -r hosts root@10.x.x.1:/etc/tinc/nycmesh/
 ```
 
  -ssh into router, make tinc-up executable
