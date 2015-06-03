@@ -25,8 +25,3 @@ root, 13f
 
 ssh override known hosts
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no root@172.30.22.1
-
-<img draggable="false" data-index="0" src="http://k3.okccdn.com/php/load_okc_image.php/images/27x0/539x512/0/6250272430436458312.jpeg?v=1" width="539" height="960" class="tall">
-
-
-
