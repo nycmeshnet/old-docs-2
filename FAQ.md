@@ -51,10 +51,11 @@ For rooftops, we configure the NanoStations with mesh software and can help you 
 
 If you don't have rooftop access it is still possible to use a directional NanoStation in your window. This works best with line-of-sight to another router. It will work from behind glass if you are unable to place it outside the window.
 
-**Is the mesh secure**
+**Is the mesh secure?**
+
 A mesh router is firewalled from your local network. It is not possible to reach beyond the mesh router to your LAN. Mesh tunneling over the Internet is by VPN and is secure. Network traffic within the mesh is not encrypted by default.
 
-If you use of the internet while on the mesh, you should use standard precautions such as using https (lock icon) web sites for secure connections.
+If you use the internet while on the mesh, you should use standard precautions such as using https (lock icon) web sites for secure connections.
 
 
 
