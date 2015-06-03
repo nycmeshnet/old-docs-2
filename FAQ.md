@@ -14,7 +14,7 @@ No, not at the moment. The mesh is best used as a backup Internet connection. If
 
 **What can I do on the mesh that I can't do on the Internet?**
 
-The mesh has small web servers connected that show local information and allow you to post messages. We are also looking into streaming services. So far we have servers in three locations- the East Village, Morningside Heights and Bay Ridge. It is also possible to connect directly to other people on the mesh without using the Internet. If for some reason the Internet is down, the mesh will still work.
+The mesh has small web servers connected that show local information and allow you to post messages. We are also looking into streaming services. So far we have servers in three locations- the East Village, Harlem and Bay Ridge. It is also possible to connect directly to other people on the mesh without using the Internet. If for some reason the Internet is down, the mesh will still work.
 
 **Why should I join the mesh now?**
 
@@ -34,7 +34,7 @@ We are using an OpenWrt package made by qMp. This uses the BMX6 mesh protocol. W
 
 **Can I use my own router?**
 
-At the moment the easiest solution is to buy a pre-configured router off us. We these available at cost- $28 for a small home router and $90 for a directional router that can be mounted outside. If you want to "flash" your own router with our software, it must have OpenWrt support and you will have to follow some very technical instructions on our github site. We are working hard to make the software simpler to flash. The routers we currently support and recommend are the Ubiquiti NanoStation M5 for outdoors and the TP-Link TL-WR842ND for indoors.
+At the moment the easiest solution is to buy a pre-configured router off us. We have these available at cost- $28 for a small home router and $90 for a directional router that can be mounted outside. If you want to "flash" your own router with our software, it must have OpenWrt support and you will have to follow some very technical instructions on our github site. We are working hard to make the software simpler to flash. The routers we currently support and recommend are the Ubiquiti NanoStation M5 for outdoors and the TP-Link TL-WR842ND for indoors.
 
 **Can I install a router if I have no view or no rooftop access?**
 
@@ -51,6 +51,10 @@ For rooftops, we configure the NanoStations with mesh software and can help you 
 
 If you don't have rooftop access it is still possible to use a directional NanoStation in your window. This works best with line-of-sight to another router. It will work from behind glass if you are unable to place it outside the window.
 
+**Is the mesh secure**
+A mesh router is firewalled from your local network. It is not possible to reach beyond the mesh router to your LAN. Mesh tunneling over the Internet is by VPN and is secure. Network traffic within the mesh is not encrypted by default.
+
+If you use of the internet while on the mesh, you should use standard precautions such as using https (lock icon) web sites for secure connections.
 
 
 

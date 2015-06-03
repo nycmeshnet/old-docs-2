@@ -3,3 +3,9 @@ ifconfig $INTERFACE up
 ip link set mtu 1350 dev $INTERFACE                                                                                                                        
 iptables -A FORWARD -p tcp -o $INTERFACE -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu                                                      
 bmx6 -c -i $INTERFACE
+
+text-shadow: 
+ -1px -1px 0 #000,
+  1px -1px 0 #000,
+ -1px 1px 0 #000,
+  1px 1px 0 #000;
