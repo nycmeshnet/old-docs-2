@@ -24,11 +24,11 @@ By joining the mesh now you help us grow and increase our reach across the city.
 
 Yes, there is a mesh network called "Guifi" in Spain that covers a large part of the country. In order to do this, they have a backbone of many long distance WiFi connections and also community owned fiber.
 
-**Are you an Internet Service Provider (ISP)**
+**Are you an Internet Service Provider (ISP)?**
 
 No, not at the moment. While we grow, we are relying on our members to share their Internet connections. Eventually we hope to peer with other providers so we can provide independent Internet service.
 
-**What software/firmware do you use**
+**What software/firmware do you use?**
 
 We are using an OpenWrt package made by qMp. This uses the BMX6 mesh protocol. We have added tinc tunneling so a router can mesh over the Internet when out of range using a secure virtual private network (VPN). We also have some members experimenting with and contributing to cjdns/hyperboria software. Let us know if you are interested in this.
 
