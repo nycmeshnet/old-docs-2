@@ -47,7 +47,7 @@ We currently support two different types of routers. A long distance directional
 For rooftops, we configure the NanoStations with mesh software and can help you with the installation. Typically one or two routers are attached to a pole on the roof and an ethernet cable is run to the apartment, and connected to an Internet gateway and a TP-Link mesh router. The cable cost is $20. The ethernet cable also supplies the power to the router using "power over ethernet". 
 
 
-**I have a great view from my window**
+**I have a great view from my window. Can I put a router there?**
 
 If you don't have rooftop access it is still possible to use a directional NanoStation in your window. This works best with line-of-sight to another router. It will work from behind glass if you are unable to place it outside the window.
 
