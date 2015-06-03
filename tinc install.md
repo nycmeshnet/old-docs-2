@@ -43,8 +43,13 @@ Copy the new public key for this node to your computer
 ```
 scp root@10.x.x.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName
 ```
+The following line must be placed as the first line in the "ConnectTo" public key file (BkBayRidge, in this example). Please ask us for the actual address.
+```
+Address = 10.x.x.1
+-----BEGIN RSA PUBLIC KEY-----
+```
 
-The file MyNewNodeName must also be copied to the "hosts" folder of the routers that you are tunneling to.
+The file MyNewNodeName must also be copied to the "hosts" folder of a router that you are tunneling to. Ask us for help with this.
 
 MTU 1300 must be set in advanced bmx6 options. This can be done in the luci interface-
 Mesh>Configuration>tunMtu 1300
