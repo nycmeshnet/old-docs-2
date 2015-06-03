@@ -34,6 +34,9 @@ AddressFamily = any
 Interface = tap0
 Mode = switch
 ConnectTo = BkBayRidge
+
+MyNewNodeName can only contain letters and numbers e.g. MnEV3rdSt1, BkBayRidge3rdAve2, MnEVDBA1. Our format is borough-neighborhood-street/venue-number at this location.
+
 ```
 Generate key by:
 ```
