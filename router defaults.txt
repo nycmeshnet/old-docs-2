@@ -1,18 +1,26 @@
 Ubiquiti recovery mode-
+Download the correct image for the router model from here-
+https://www.ubnt.com/download/
+e.g. XW.v5.5.10.24238.141001.1641.bin (nanobeam)
 
-Hold down reset, put in ethernet cable, hold reset button 15 seconds
+Hold down small reset button on the POE power supply or on the router
+Put in POE ethernet cable
+Keep holding the reset button 15 seconds
+
+The lights on the router should now be flashing to show it is in recovery mode
+
 ping 192.168.1.20 to make sure you are connected
 in terminal- 
 lappy:~ username$ tftp
 tftp> connect 192.168.1.20
 tftp> binary
-tftp> put XW.v5.5.10.24238.141001.1641.bin (nanobeam)
+tftp> put XW.v5.5.10.24238.141001.1641.bin
 
 OpenWRT
 192.168.1.1 (no wifi)
 
 AirOS
-192.168.1.20
+192.168.1.20  (sometimes 192.168.1.1)
 ubnt, ubnt
 
 TP-Link
