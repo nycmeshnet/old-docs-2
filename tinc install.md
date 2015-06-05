@@ -1,12 +1,13 @@
+To install tinc you need to be familiar with the terminal, have git installed and be able to use the vi text editor for simple editing. We need to give you an IP address to tunnel to, and we will have to add your tinc public key to our routers.  
 
-ssh in and-
+Firstly, ssh in to the router and-
 ```
 opkg update
 opkg install tinc
 ```
-if opkg doesn't update, look at the note below* 
+if opkg doesn't update, see note below* 
 
-after install, you also need to make the "nycmesh" directory
+after install, you need to make the "nycmesh" directory
 
 ```mkdir /etc/tinc/nycmesh```
 
@@ -16,7 +17,7 @@ git clone https://github.com/nycmeshnet/docs
 cd docs/tinc
 scp tinc-up root@10.x.x.1:/etc/tinc/nycmesh/tinc-up
 scp tinc.conf root@10.x.x.1:/etc/tinc/nycmesh/tinc.conf
-scp -r hosts root@10.x.x.x:/etc/tinc/nycmesh/
+scp -r hosts root@10.x.x.1:/etc/tinc/nycmesh/
 ```
 
  -ssh into router, make tinc-up executable
@@ -28,7 +29,7 @@ chmod +x tinc-up
 ```
 vi tinc.conf
 ```
-e.g.
+e.g.  
 Name = MyNewNodeName  
 AddressFamily = any  
 Interface = tap0  
