@@ -4,8 +4,10 @@ ssh in and-
 opkg update
 opkg install tinc
 ```
+if opkg doesn't update, look at the note below* 
 
 after install, you also need to make the "nycmesh" directory
+
 ```mkdir /etc/tinc/nycmesh```
 
 on your computer, clone https://github.com/nycmeshnet/docs
@@ -13,7 +15,7 @@ in terminal, move to folder "tinc"
 ```
 scp tinc-up root@10.x.x.1:/etc/tinc/nycmesh/tinc-up
 scp tinc.conf root@10.x.x.1:/etc/tinc/nycmesh/tinc.conf
-scp -r hosts root@10.30.54.1:/etc/tinc/nycmesh/
+scp -r hosts root@10.x.x.x:/etc/tinc/nycmesh/
 ```
 
  -ssh into router, make tinc-up executable
@@ -34,7 +36,7 @@ ConnectTo = BkBayRidge
 
 copy the new public key for this node to your computer
 ```
-scp root@10.30.82.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName
+scp root@10.x.x.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName
 ```
 
 The file MyNewNodeName has to also be copied to the "hosts" folder of the routers that you are tunneling to
@@ -49,7 +51,7 @@ tincd -n nycmesh
 ```
 you can also use the same line to start the tunnel without rebooting
 
-if opkg doesn't work you need to use full pathnames, e.g. for ar71xx-
+*if opkg doesn't work you need to use full pathnames, e.g. for ar71xx-
 
 ```
 cd /tmp
