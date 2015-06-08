@@ -1,0 +1,200 @@
+flash image (note wan and lan ports swap)
+
+Go to http://admin.qmp
+
+
+qmp easy setup
+community
+set ip
+
+eth1 - Lan
+eth0 - Wan
+/etc/nycmesh/delay_nodog.sh
+
+wifi
+set ssid and channel
+
+add nycmesh public key
+add conf for 802.1ad vlan
+add preserve options /etc/tinc /etc/nodogsplash /etc/nycmesh
+
+add nodogsplash confs and script/etc/nycmesh/delay_nodog.sh
+
+add tunnel checker script
+#---Script Start---
+
+cd /etc/tinc
+mkdir nycmesh
+cd nycmesh
+mkdir hosts
+
+#tinc ./tinc-up script
+cat <<"TAGTEXTFILE" > /etc/tinc/nycmesh/tinc-up
+#/bin/sh
+ip link set dev $INTERFACE up
+ip link set mtu 1350 dev $INTERFACE
+iptables -A FORWARD -p tcp -o $INTERFACE -m tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
+bmx6 -c -i $INTERFACE
+TAGTEXTFILE
+chmod +x /etc/tinc/nycmesh/tinc-up
+
+#tinc conf
+mac=$(ip link show eth0 | awk '/ether/ {print $2}' | sed s/://g)
+
+cat >/etc/tinc/nycmesh/tinc.conf << EOL
+#/bin/sh
+Name = $mac
+AddressFamily = any
+Interface = tap0
+Mode = switch
+ConnectTo = BkBayRidge
+ConnectTo = 3rdStN750
+EOL
+
+cd /etc/tinc/nycmesh/hosts
+wget https://raw.githubusercontent.com/nycmeshnet/docs/master/tinc/hosts/BkBayRidge --no-check-certificate
+wget https://raw.githubusercontent.com/nycmeshnet/docs/master/tinc/hosts/3rdStN750 --no-check-certificate
+
+#generate key
+tincd -K4096 -n nycmesh </dev/null
+
+
+
+sed -i -e '$i \tincd -n nycmesh' /etc/rc.local
+
+
+/etc/nycmesh/delay_nodog.sh
+
+#802.1ad
+
+#lan
+cat >>/etc/config/network << EOL
+config device 'eth1_mesh12'                                   
+        option type '8021ad'                                  
+        option name 'eth1_mesh12'                             
+        option ifname 'eth1'                                
+        option vid '12'                                       
+                                                              
+config interface 'eth1_mesh12_if'                             
+        option ifname 'eth1_mesh12'                           
+        option proto 'none'                                   
+	option auto '1'
+EOL
+
+#wan
+cat >>/etc/config/network << EOL
+config device 'eth0_mesh12'
+        option type '8021ad'
+        option name 'eth0_mesh12'
+        option ifname 'eth0'
+        option vid '12'
+
+config interface 'eth0_mesh12_if'
+        option ifname 'eth0_mesh12'
+        option proto 'none'
+        option auto '1'
+EOL
+
+#tunnel checker
+mkdir /etc/nycmesh
+
+cat >>/etc/nycmesh/check_tunnel.sh << EOL
+interfaces="tap0 eth0_mesh12 eth1_mesh12"
+#!/bin/sh
+bmx6 -c --tunmtu 1300
+for i in \$interfaces
+do
+        echo "checking \$i"
+        if bmx6 -c --interfaces |grep -q \$i ; then
+                echo "\$i found"
+        else
+                echo "\$i not found"
+
+                bmx6 -c -i \$i
+        fi
+done
+EOL
+chmod +x /etc/nycmesh/check_tunnel.sh
+(crontab -l ; echo "* * * * * /etc/nycmesh/check_tunnel.sh")| crontab -
+
+cat <<"TAGTEXTFILE" > /etc/nodogsplash/nodogsplash.conf
+GatewayInterface br-lan                                                      
+FirewallRuleSet authenticated-users {                                        
+    FirewallRule block to 192.168.0.0/16                                     
+    FirewallRule block to 172.16.0.0/12
+#   FirewallRule block to 10.0.0.0/8                                           
+    FirewallRule allow tcp port 53                                             
+    FirewallRule allow udp port 53                                             
+    FirewallRule allow tcp port 80                                             
+    FirewallRule allow tcp port 443                                            
+    FirewallRule allow tcp port 22                                             
+                                                                               
+}                                                                              
+                                                                               
+FirewallRuleSet preauthenticated-users {                                       
+    FirewallRule allow tcp port 53                                             
+    FirewallRule allow udp port 53                                             
+                           
+}                                                                              
+                                                                               
+FirewallRuleSet users-to-router {                                              
+    FirewallRule allow udp port 53                                             
+    FirewallRule allow tcp port 53                                             
+    FirewallRule allow udp port 67                                             
+    FirewallRule allow tcp port 22                                             
+    FirewallRule allow tcp port 80                                             
+    FirewallRule allow tcp port 443                                            
+    FirewallRule allow tcp port 2050                                           
+}                                                                              
+GatewayName NYC Mesh                                                           
+ExternalInterface eth0                                                         
+RedirectURL http://nycmesh.net/                                                
+TAGTEXTFILE
+
+#nodog splash
+
+cat <<"TAGTEXTFILE" > /etc/nycmesh/delay_nodog.sh
+#!/bin/sh
+upSeconds="$(cat /proc/uptime | grep -o '^[0-9]\+')"
+upMins=$((${upSeconds} / 60))
+
+if [ "${upMins}" -ge "2" ]
+then
+    echo "Up for ${upMins} minutes"
+	ps | grep nodogsplash |grep -v grep
+	if [ $? -eq 0 ]; then
+	  echo "Process is running."
+	else
+	  echo "Process is not running."
+	  nodogsplash
+	fi
+
+
+else
+    echo "Up less than 2 minutes"
+fi
+TAGTEXTFILE
+chmod +x /etc/nycmesh/delay_nodog.sh
+(crontab -l ; echo "* * * * * /etc/nycmesh/delay_nodog.sh")| crontab -
+
+wget https://raw.githubusercontent.com/nycmeshnet/nodogsplash/master/splash.html -O /etc/nodogsplash/htdocs/splash.html --no-check-certificate
+
+#mdns
+echo "qmp mesh" > /etc/mdns/domain4
+echo "qm6 mesh6" > /etc/mdns/domain6
+
+uci add_list qmp.update.preserve='/etc/tinc /etc/nodogsplash /etc/nycmesh'
+uci commit
+
+
+
+echo "#block access to internal lan" >> /etc/firewall.user
+echo "iptables -I FORWARD -d 192.168.0.0/16 -j DROP" >> /etc/firewall.user 
+echo "iptables -I FORWARD -d 172.16.0.0/12 -j DROP" >> /etc/firewall.user
+echo "iptables -I FORWARD -o eth+ -d 10.0.0.0/8 -j DROP" >> /etc/firewall.user
+
+#---Script End---
+
+echo "/etc/nycmesh" >> /etc/sysupgrade.conf
+
+
