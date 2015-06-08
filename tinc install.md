@@ -11,7 +11,7 @@ after install, you need to make the "nycmesh" directory
 
 ```mkdir /etc/tinc/nycmesh```
 
-Clone our "docs" folder and copy two files and a directory onto the router.
+On your computer, clone our "docs" folder and copy two files and a directory onto the router.
 ```
 git clone https://github.com/nycmeshnet/docs
 cd docs/tinc
