@@ -44,6 +44,10 @@ e.g.
 Address = x.x.x.x  
 -----BEGIN RSA PUBLIC KEY-----  
 
+Generate key by:
+```
+tincd -n nycmesh -K4096
+```
 copy the new public key for this node to your computer
 ```
 scp root@10.x.x.1:/etc/tinc/nycmesh/hosts/MyNewNodeName MyNewNodeName

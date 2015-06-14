@@ -1,0 +1,22 @@
+flashing a TP-Link on Mac
+
+download the 842ND nycmesh image to your computer
+Turn off Wi-Fi on your computer
+Connect ethernet to one of the four yellow LAN ports
+In Network Preferences, make sure you are connected and the laptop has an IP 192.168.0.x
+You may need to use DHCP with a manual address. Give it 192.168.0.21
+Go to 192.168.0.1 in your browser name: admin, pass: admin
+Click System Tools>Firmware upgrade
+Select the image you downloaded and click "upgrade"
+
+Using W-Fi connect to the router. It has a name like "TP-LINK_ABC123"
+Enter the "wireless password/pin" that is printed on the bottom of the router e.g. "12341234"
+Go to 192.168.0.1 in your browser name: admin, pass: admin
+Click System Tools>Firmware upgrade
+Click "choose file" and select the image you downloaded and click "upgrade"
+
+Make coffee or tea as it takes 5 minutes or more to finish configuring. Obviously, do not unplug the power while it is doing this configuring.
+
+When you have finished your beverage, you should now be able use the router by connecting the blue ethernet WAN port to LAN port of another router. If you are in the same location as another NYC Mesh router you will already be meshed. Your new router automatically contacts NYC Mesh and we add it to our list of nodes, usually within the hour or first thing in the morning. Once added you will be able to see our local servers http://ev.mesh, http://bayridge.mesh/ and http://harlem.mesh/
+
+These local servers are only visible on the mesh. If you see one of these servers then congratulations, you are on the mesh.
