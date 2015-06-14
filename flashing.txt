@@ -60,7 +60,8 @@ After reboot log back in and change the Administration password.
 
 Beware: Saving anything in the "qMp" menu will overwrite a lot of things including the SSID
 
-Add the splash page by following instructions here:
+Next install tinc as per "tinc install.md"
+
+For TP-Link you can also add the splash page by following instructions here:
 https://github.com/nycmeshnet/nodogsplash
 
-The DNS tld should be changed to .mesh and .mesh6?  That's the only way we can see nyc.mesh from the network.
