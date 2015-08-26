@@ -30,21 +30,18 @@ chmod +x tinc-up
 vi tinc.conf
 ```
 e.g.  
-Name = MyNewNodeName  
+Name = myMACaddress  
 AddressFamily = any  
 Interface = tap0  
 Mode = switch  
-ConnectTo = BkBayRidge  
+ConnectTo = tunnelnycmesh  
 
-You need to add an address to the first line of the public key of the node you are connecting to. (BkBayRidge in this example. Please ask us for the address!)
+For the Name, by convention we are using the MAC address of the router without colons (e.g. c23e1f47909d). Use this line in the terminal:
 ```
-vi hosts/BkBayRidge
+cat /sys/class/net/eth0/address | sed -e 's/://g'
 ```
-e.g.  
-Address = x.x.x.x  
------BEGIN RSA PUBLIC KEY-----  
+Save tinc.conf and you are now ready to generate the keys with this command-
 
-Generate key by:
 ```
 tincd -n nycmesh -K4096
 ```
@@ -66,6 +63,10 @@ tincd -n nycmesh
 ```
 you can also use the same line to start the tunnel without rebooting  
 
+BMX6 needs to know that tinc tunnels are slower than internet gateways. The next line takes care of that-
+```
+bmx6 -c -i tap0 /rateMax 10000 /rateMin 10000
+```
   
   
 *note, if opkg doesn't work you need to use full pathnames for the installed version of OpenWrt and the router's chipset, e.g. Chaos Calmer and ar71xx-
