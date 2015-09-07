@@ -9,6 +9,6 @@ bmx6 -c --originators | grep fd66 | awk '{print $1"\t"$3}'
 # print node names (column 1)
 bmx6 -c --originators | grep fd66 | awk '{print $1}'
 
-# print number of nodes
+# print number of nodes (line count)
 bmx6 -c --originators | grep fd66 | wc -l
 
