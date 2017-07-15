@@ -13,9 +13,7 @@ pwd: ubnt
 
 
 Flash with qMp factory image-
-
-for Nanostation M5 XW get the trunk factory image here-
-http://fw.guifibaix.coop/
+https://fw.qmp.cat/Releases/3.2.1/ (or later release)
 
 For TPLink WR-842ND and WR-841Nv9 get the image here-
 https://github.com/nycmeshnet/firmware
